@@ -1,8 +1,8 @@
 <h1>Unit 3 Final Project: Dance Game</h1>
 
-<strong>Interaction</strong>:
+<strong>Interaction</strong>: I came creating a rhythm game using minim, because each beat will spawn a new ellipse. I am also going to use the makey-makey to recreate the board in which the feet step instead of using the keys. 
 
-<strong>Description</strong>:
+<strong>Description</strong>: This game is inspired by the dance games I see in the arcades. I like to recreate games I see in everyday life, and I thought this was a interesting yet a hard game to completely recreate. So this game will eventually have 4 circles and you have to use 4 keys to “combust” the boxes before they get off the page. Otherwise you die. 
 
 <h2>Timeline</h2>
 
@@ -28,6 +28,6 @@
   Milestone #3: May 12th, 2015 (For C block) </h3>
   <strong>Goal:</strong> You should have iterated and improved on your prototype by the end of this milestone.
   <ul>
-    <li>first task : who is doing it (if in team)</li>
+    <li>first task : Create the board with the makey-makey, and connect it to the game.
   </ul>
 </div>
