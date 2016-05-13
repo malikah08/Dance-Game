@@ -16,12 +16,9 @@ BeatDetect detect;
 
 void setup()
 {
-  size(600,800, P3D);
+  size(600, 800, P3D);
   background(0); 
   startTime=millis();
-  //textSize(50);
-  //textAlign(CENTER);
-  //text( Score, 100, 300);
 
 
   minim = new Minim(this);
@@ -29,7 +26,7 @@ void setup()
   song.play();
 
   detect = new BeatDetect();
-  detect.setSensitivity(500);
+  detect.setSensitivity(900);
 
   z = new Zone(0, 650, 60); //put the position in here.
   b= new ArrayList<Beat>();
@@ -43,6 +40,16 @@ void setup()
 void draw()
 {
   background(0);
+  stroke(255); 
+  for (int i = 0; i < song.bufferSize() - 1; i++)
+  {
+    line(i, 50 + song.left.get(i)*50, i+1, 50 + song.left.get(i+1)*50);
+    line(i, 150 + song.right.get(i)*50, i+1, 150 + song.right.get(i+1)*50);
+  }
+  textSize(50);
+  fill(255); 
+  textAlign(CENTER);
+  text( Score, 500, 50);
   detect.detect(song.mix);
   z.Draw();
   if (detect.isOnset())
@@ -70,12 +77,13 @@ void draw()
   {
     b.get(i).Draw();
     b.get(i).Move();
+    b.get(i).Die(); 
     //if(COLLISION CODE)
     //b.remove(i);
   }
 
 
-  //for (int i=0; i<30; i++)
+  //fo r (int i=0; i< 30; i++)
   //{
   // if (millis()-startTime>500)
   // {
@@ -85,47 +93,51 @@ void draw()
   //}
   if (keyPressed)
   {
+    //   if (key == CODED)
     {
-      if (key == 'w')
       {
-        for (int i=0; i< b.size(); i++)
+        if (keyCode == RIGHT)
         {
-          if (b.get(i).getid() == 0) //Green Beat
+          println("working"); 
+          for (int i=0; i< b.size(); i++)
           {
-            b.get(i).Pressed();
+            if (b.get(i).getid() == 0) //Green Beat
+            {
+              b.get(i).Pressed();
+            }
           }
         }
-      }
 
-      if (key == 'a')
-      {
-        for (int i=0; i< b.size(); i++)
+        if (keyCode == LEFT)
         {
-          if (b.get(i).getid() == 2) //Blue Beat
+          for (int i=0; i< b.size(); i++)
           {
-            b.get(i).Pressed();
+            if (b.get(i).getid() == 2) //Blue Beat
+            {
+              b.get(i).Pressed();
+            }
           }
         }
-      }
 
-      if (key == 's')
-      {
-        for (int i=0; i< b.size(); i++)
+        if (keyCode == UP)
         {
-          if (b.get(i).getid() == 1) //Red Beat
+          for (int i=0; i< b.size(); i++)
           {
-            b.get(i).Pressed();
+            if (b.get(i).getid() == 1) //Red Beat
+            {
+              b.get(i).Pressed();
+            }
           }
         }
-      }
 
-      if (key == 'd')
-      {
-        for (int i=0; i< b.size(); i++)
+        if (keyCode == DOWN)
         {
-          if (b.get(i).getid() == 3) //Yellow Beat
+          for (int i=0; i< b.size(); i++)
           {
-            b.get(i).Pressed();
+            if (b.get(i).getid() == 3) //Yellow Beat
+            {
+              b.get(i).Pressed();
+            }
           }
         }
       }

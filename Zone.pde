@@ -5,14 +5,14 @@ class Zone
   private float _w;
   private float _h;
 
-  Zone(float x, float y,  float h)
+  Zone(float x, float y, float h)
   {
     _x=x;
     _y=y;
     _w=width;
-    _h=h; 
+    _h=h;
   }
-  
+
   void Draw()
   {
     fill(255); 
